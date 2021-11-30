@@ -11,9 +11,25 @@
     <title>Tweeter192 login page</title>
   </head>
   <body style="margin-left: 2rem; margin-top: 1rem">
-    <h1>Create Account</h1>
-
-    <h1>Login Existing User</h1>
+    <div>
+      <form method="POST" action="/home">
+        {% csrf_token %}
+        <p>Create Account</p>
+        <input name="username" placeholder="username" />
+        <input name="email" placeholder="email" />
+        <input name="password" placeholder="password" />
+        <input type="submit" value="Create"/>
+    </form>
+    </div>
+    <div>
+      <form method="POST" action="/home">
+        {% csrf_token %}
+        <p>Login Existing User</p>
+        <input name="username" placeholder="username" />
+        <input name="password" placeholder="password" />
+        <input type="submit" value="login"/>
+    </form>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
   </body>
