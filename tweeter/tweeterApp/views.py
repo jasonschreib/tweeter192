@@ -8,12 +8,13 @@ def splash(request):
   return render(request, 'splash.html', {})
 
 #log in and sign up page view
-
+def login(request):
+  return render(request, 'login.html', {})
 
 #home page view - all tweets and hashtags
 
 
-#proffile page view - specific users tweets
+#profile page view - specific users tweets
 
 
 #hashtag page view - all tweets that correspond to a hashtag

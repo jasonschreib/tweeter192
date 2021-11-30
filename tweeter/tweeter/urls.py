@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 #import all views from views.py
-from tweeterApp.views import splash
+from tweeterApp.views import splash, login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     #url for the splash page
-    path('', splash, name='splash')
+    path('', splash, name='splash'),
+    #url for the login page
+    path('login', login, name='login')
 ]
