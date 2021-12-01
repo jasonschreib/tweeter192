@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 #import the tweet class, hashtag class
-from tweeterApp.models import Tweet
+from tweeterApp.models import Tweet, Hashtag
 # , hashtag
 #import authentication and login methods
 from django.contrib.auth import authenticate, login, logout
@@ -78,11 +78,37 @@ def home(request):
   return render(request, 'home.html', {"tweets": tweets}) #want to pass in all the tweets, do we need to pass in the user?
 
 
+#tweet like url - redirects to homepage after updating the tweet
+def like(request):
+  #get the tweet to update
+  tweet = Tweet.objects.get(id=request.GET['id'])
+  #increment number of likes
+  tweet.likes += 1
+  #save the tweet
+  tweet.save()
+  #redirect to the homepage
+  return redirect('home')
+
+
+  #tweet dislike url - redirects to homepage after updating the tweet
+def dislike(request):
+  #get the tweet to update
+  tweet = Tweet.objects.get(id=request.GET['id'])
+  #decrement number of likes
+  tweet.likes -= 1
+  #save the tweet
+  tweet.save()
+  #redirect to the homepage
+  return redirect('home')
+
+
 #profile page view - specific users tweets
 def profile(request):
   #get the author from the request
   print(request.GET.get('q'))
-  return render(request, 'profile.html', {"author": author}) #want to pass in the user - and get the user's tweets
+  #filter all the tweets for this author
+  tweets = Tweet.objects.filter(author=request.author)
+  return render(request, 'profile.html', {"tweets": tweets}) #want to pass in the tweets for this user
 
 
 #hashtag page view - all tweets that correspond to a hashtag
