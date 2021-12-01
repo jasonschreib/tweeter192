@@ -16,14 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 #import all views from views.py
-from tweeterApp.views import splash, login, home
+from tweeterApp.views import splash, accounts, signup, login_view, home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     #url for the splash page
     path('', splash, name='splash'),
-    #url for the login page
-    path('login', login, name='login'),
+    #url for the accounts page
+    path('accounts', accounts, name='accounts'),
+    #url for the signup (which will then redirect)
+    path('signup', signup, name='signup'),
+    #url for the login (which will then redirect)
+    path('login', login_view, name='login_view'),
     #url for the home page
     path('home', home, name='home')
 ]

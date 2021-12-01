@@ -28,6 +28,10 @@
             <p>{{tweet.timestamp}}</p>
             {{tweet.body}}
             <br></br> <!-- new line -->
+            <form method="PUT" action="/home">
+              {% csrf_token %}
+              <input class="btn btn-primary" type="submit" value="Like!"/>
+            </form>
             Likes: {{tweet.likes}}
           </div>
         </div>

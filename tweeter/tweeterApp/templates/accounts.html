@@ -12,21 +12,21 @@
   </head>
   <body style="margin-left: 2rem; margin-top: 1rem">
     <div>
-      <form method="POST" action="/home">
+      <form method="POST" action="/signup">
         {% csrf_token %}
         <p>Create Account</p>
         <input name="username" placeholder="username" />
         <input name="email" placeholder="email" />
-        <input name="password" placeholder="password" />
+        <input name="password" placeholder="password" type="password"/>
         <input type="submit" value="Create"/>
     </form>
     </div>
     <div>
-      <form method="GET" action="/home">
+      <form method="POST" action="/login">
         {% csrf_token %}
         <p style="margin-top: 2rem">Login Existing User</p>
         <input name="username" placeholder="username" />
-        <input name="password" placeholder="password" />
+        <input name="password" placeholder="password" type="password"/>
         <input type="submit" value="login"/>
     </form>
     </div>
