@@ -105,10 +105,11 @@ def dislike(request):
 #profile page view - specific users tweets
 def profile(request):
   #get the author from the request
-  print(request.GET.get('q'))
-  #filter all the tweets for this author
-  tweets = Tweet.objects.filter(author=request.author)
-  return render(request, 'profile.html', {"tweets": tweets}) #want to pass in the tweets for this user
+  author = Tweet.objects.get(id=request.GET['id']).author
+  print(author)
+  #filter all the tweets for this authors
+  tweets = Tweet.objects.filter(author=author)
+  return render(request, 'profile.html', {"tweets": tweets, "author": author}) #want to pass in the tweets for this user
 
 
 #hashtag page view - all tweets that correspond to a hashtag

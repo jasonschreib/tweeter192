@@ -12,6 +12,9 @@
   </head>
   <body style="margin-left: 2rem; margin-top: 1rem">
     <div>
+      <a class="btn btn-sm" href="logout">Logout</a>
+    </br>
+  </br> <!-- To add a little bit of space -->
       <a class="btn btn-primary" href="home">All Tweets</a>
       <h1>{{author}}'s Tweets</h1>
     </div>
@@ -22,7 +25,7 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-body">
-              <h5><a href="tweets/?author={{tweet.author}}">{{tweet.author}}</a></h5>
+              <h5><a href="profile?id={{tweet.id}}">{{tweet.author}}</a></h5>
               <p>{{tweet.timestamp}}</p>
               {{tweet.body}}
             </div>

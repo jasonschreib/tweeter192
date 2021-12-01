@@ -37,7 +37,7 @@ urlpatterns = [
     #url for disliking a tweet (which will then redirect to home)
     path('dislike', dislike, name='dislike'),
     #url for a user's profile of tweets
-    path('tweets', profile, name='profile'),
+    path('profile', profile, name='profile'),
     #url for the logout (which will then redirect to accounts)
     path('logout', logout_view, name='logout_view')
 ]
