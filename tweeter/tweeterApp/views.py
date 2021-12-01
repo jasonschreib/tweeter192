@@ -1,6 +1,7 @@
 from django.shortcuts import render
 #import the tweet class, hashtag class
-from tweeterApp.models import tweet, hashtag
+from tweeterApp.models import Tweet
+# , hashtag
 
 # Create your views here.
 
@@ -15,8 +16,16 @@ def login(request):
 
 #home page view - all tweets and hashtags
 def home(request):
+  print('hey')
+  #if the request is a POST request - meaning new tweet
+  if (request.method == 'POST'):
+    print('REQ', request.POST)
+    #retrieve data from the post req
+    body = request.POST['body']
+    #create a new tweet for the database
+    Tweet.objects.create(body=body, author=request.user)
   #retrieve all instances of the tweet class
-  tweets = tweet.objects.all()
+  tweets = Tweet.objects.all()
   return render(request, 'home.html', {"tweets": tweets}) #want to pass in all the tweets, do we need to pass in the user?
 
 #profile page view - specific users tweets
