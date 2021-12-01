@@ -80,7 +80,9 @@ def home(request):
 
 #profile page view - specific users tweets
 def profile(request):
-  return render(request, 'profile.html', {}) #want to pass in the user - and get the user's tweets
+  #get the author from the request
+  print(request.GET.get('q'))
+  return render(request, 'profile.html', {"author": author}) #want to pass in the user - and get the user's tweets
 
 
 #hashtag page view - all tweets that correspond to a hashtag

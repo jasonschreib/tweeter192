@@ -11,4 +11,5 @@ class Tweet(models.Model):
 
 
 #model for hashtags
-#class Hashtags(models.Model);
+class Hashtag(models.Model):
+  pass
