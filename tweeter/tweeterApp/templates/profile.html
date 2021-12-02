@@ -28,6 +28,12 @@
               <h5><a href="profile?id={{tweet.id}}">{{tweet.author}}</a></h5>
               <p>{{tweet.timestamp}}</p>
               {{tweet.body}}
+              <br></br> <!-- new line -->
+              <!-- if the tweet is written by the author -->
+              {% if tweet.author == request.user %}
+              <!-- create a delete button -->
+              <a class="btn btn-primary btn-warning" href='delete?id={{tweet.id}}'>Delete</a>
+              {% endif %}
             </div>
           </div>
         </div>

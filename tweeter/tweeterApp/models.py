@@ -12,4 +12,5 @@ class Tweet(models.Model):
 
 #model for hashtags
 class Hashtag(models.Model):
-  pass
+  hashtag = models.CharField(max_length=100, default='')
+  tweet_id = models.ForeignKey(Tweet, on_delete = models.DO_NOTHING, default=0)

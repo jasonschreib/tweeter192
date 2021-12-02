@@ -73,8 +73,9 @@ def home(request):
   # if (request.method == 'PATCH'):
   print('PATCHHHH', request.method)
     #update the likes on the post by one
-  #retrieve all instances of the tweet class
+  #retrieve all instances of the tweet class - return them in order of recency
   tweets = Tweet.objects.all()
+  print('tweets', tweets)
   return render(request, 'home.html', {"tweets": tweets, "user": request.user}) #want to pass in all the tweets, do we need to pass in the user?
 
 
