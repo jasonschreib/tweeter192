@@ -81,7 +81,9 @@ def home(request):
 #delete page view - redirects to homepage after deleting a tweet
 def delete(request):
   #retrieve the tweet to delete
+  tweet = Tweet.objects.get(id=request.GET['id'])
   #delete the tweet
+  tweet.delete()
   print('hit the delete route')
   #redirect back to the homepage
   return redirect('home')
