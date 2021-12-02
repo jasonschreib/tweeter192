@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 #import all views from views.py
-from tweeterApp.views import splash, accounts, signup, login_view, home, like, dislike, logout_view, profile
+from tweeterApp.views import splash, accounts, signup, login_view, home, delete, like, dislike, logout_view, profile
 #import the tweet class, hashtag class
 from tweeterApp.models import Tweet, Hashtag
 
@@ -32,6 +32,8 @@ urlpatterns = [
     path('login', login_view, name='login_view'),
     #url for the home page
     path('home', home, name='home'),
+    #url for deleting a tweet (which will then redirect to home)
+    path('delete', delete, name='delete'),
     #url for liking a tweet (which will then redirect to home)
     path('like', like, name='like'),
     #url for disliking a tweet (which will then redirect to home)

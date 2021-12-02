@@ -30,6 +30,11 @@
               <h5><a href="profile?id={{tweet.id}}">{{tweet.author}}</a></h5>
               <p>{{tweet.timestamp}}</p>
               {{tweet.body}}
+              <!-- if the tweet is written by the author -->
+              {% if tweet.author == request.user %}
+              <!-- create a delete button -->
+              <a class="btn btn-primary btn-warning" href='delete?id={{tweet.id}}'>Delete</a>
+              {% endif %}
               <br></br> <!-- new line -->
               <a class="btn btn-primary btn-small" href='like?id={{tweet.id}}'>Like!</a>
               <a class="btn btn-danger btn-small" href='dislike?id={{tweet.id}}'>Dislike</a>

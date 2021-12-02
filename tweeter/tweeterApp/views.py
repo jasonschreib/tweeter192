@@ -75,7 +75,16 @@ def home(request):
     #update the likes on the post by one
   #retrieve all instances of the tweet class
   tweets = Tweet.objects.all()
-  return render(request, 'home.html', {"tweets": tweets}) #want to pass in all the tweets, do we need to pass in the user?
+  return render(request, 'home.html', {"tweets": tweets, "user": request.user}) #want to pass in all the tweets, do we need to pass in the user?
+
+
+#delete page view - redirects to homepage after deleting a tweet
+def delete(request):
+  #retrieve the tweet to delete
+  #delete the tweet
+  print('hit the delete route')
+  #redirect back to the homepage
+  return redirect('home')
 
 
 #tweet like url - redirects to homepage after updating the tweet
