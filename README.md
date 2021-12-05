@@ -1,6 +1,38 @@
 # tweeter192
 A simple clone of a treasured social media, Twitter
 
+Documentation of my routes, and design considerations:
+    #url for the splash page --> '/'
+
+    #url for the accounts page --> '/accounts'
+
+    #url for the signup (which will then redirect back to homepage if successful) --> '/signup'
+
+    #url for the login (which will then redirect back to homepage if successful) --> '/login'
+
+    #url for the home page --> '/home'
+
+    #url for deleting a tweet (which will then redirect to homepage after deleting the tweet) --> '/delete'
+
+    #url for liking a tweet (which will then redirect to home) --> '/like?id={{tweet.id}}'
+
+    #url for disliking a tweet (which will then redirect to home) --> '/dislike?id={{tweet.id}}'
+
+    #url for a user's profile of tweets --> '/profile?id={{tweet.id}}'
+
+    #url for a hashtag's tweets --> '/hashtag'
+
+    #url for the logout (which will then redirect to accounts page) --> '/logout'
+
+
+How to run the server:
+Django must be installed
+Run the following command to create db --> python3 manage.py makemigrations
+Then --> python3 manage.py migrate
+Then the following to run the server --> python3 manage.py runserver
+
+
+
 Introduction
 The beauty of web development is its ability to create software that anybody with an internet connection can use. In this assignment, you will implement a clone of my favourite social media - Twitter! An implementation of the website is available here and you are expected to recreate all the functionality from the site. This might seem a little daunting - but I assure you that everything you need to know has been covered in lecture.
 
